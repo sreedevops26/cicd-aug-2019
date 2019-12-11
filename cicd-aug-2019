@@ -24,11 +24,11 @@ pipeline
 	{
 	steps
 	{
-	withDockerRegistry(credentialsId: 'ecr:us-east-1:ecr', url: '844998711356.dkr.ecr.us-east-1.amazonaws.com') 
+	withDockerRegistry(credentialsId: 'dr', url: 'https://index.docker.io/v1/') 
 	{
     script
     {	
-	def customImage = docker.build("844998711356.dkr.ecr.us-east-1.amazonaws.com/ssdevops:1.0}")
+	def customImage = docker.build("sreedevops26/mydevops:2.5")
     customImage.push()
 	}
 	}
