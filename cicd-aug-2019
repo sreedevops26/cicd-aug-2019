@@ -19,12 +19,11 @@ pipeline
 	}
 	stage('push newly created image into ECR repo')
 	{
-	steps
-	{
 	withDockerRegistry(credentialsId: 'ecr:us-east-1:ecr', url: '844998711356.dkr.ecr.us-east-1.amazonaws.com') 
 	{
+	
     docker.image('844998711356.dkr.ecr.us-east-1.amazonaws.com/ssdevops').push('1.0')
-    }
+    
    }	
   }
  }
