@@ -14,21 +14,14 @@ pipeline
 	{ 
 	  steps
 	  {
-	   sh 'docker build -t webbapp:1.0 .'
+	   sh 'docker build -t 844998711356.dkr.ecr.us-east-1.amazonaws.com/ssdevops:1.0 .'
 	  }
 	}
-	stage('delete container if already exists')
-	{
-	  steps
-	  {
-	    sh 'docker rm -f webap'
-	  }
-	}
-	stage('bringup test docker container')
+	stage('push newly created image into ECR repo')
 	{
 	steps
 	{
-	sh 'docker run -dti --name webap -p 91:80 webbapp:1.0 /bin/bash'
+	sh 'docker push 844998711356.dkr.ecr.us-east-1.amazonaws.com/ssdevops:1.0'
     }
    }	
   }
