@@ -14,7 +14,10 @@ pipeline
 	{ 
 	  steps
 	  {
+	  script
+	  {
 	  docker.build('844998711356.dkr.ecr.us-east-1.amazonaws.com/ssdevops:1.0')
+	  }
 	  }
 	}
 	stage('push newly created image into ECR repo')
