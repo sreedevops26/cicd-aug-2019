@@ -34,7 +34,14 @@ pipeline
 	}
     }
 	}
+	stage('run ansible playbook to bringup docker containers')
+	{
+	steps
+	{
+	 ansiblePlaybook credentialsId: 'dev-creds', installation: 'ansible', inventory: '/etc/ansible/roles/webapp/tests/hosts.ini', playbook: '/etc/ansible/roles/webapp/tests/webapp.yml'
    }	
+  }
+  }
   }
  
  
