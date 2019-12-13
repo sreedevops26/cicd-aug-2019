@@ -10,6 +10,7 @@ version: '3'
 services:
    db:
      image: mysql:5.7
+     container_name:  mydevops-mysql
      volumes:
        - db_data:/var/lib/mysql
      restart: always
@@ -23,6 +24,7 @@ services:
      depends_on:
        - db
      image: wordpress:latest
+     container_name:  mydevops-wordpress
      ports:
        - "80:80"
      restart: always
