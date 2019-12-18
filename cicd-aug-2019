@@ -28,12 +28,20 @@ pipeline
 	{
     script
     {	
-	def customImage = docker.build("sreedevops26/mydevops:2.5")
+	def customImage = docker.build("sreedevops26/mydevops:$BUILD_NUMBER")
     customImage.push()
 	}
 	}
     }
 	}
+        stage('trigger build number')
+        {
+         steps
+         {
+          sh 'echo version: $BUILD_NUMBER >> //etc/ansible/roles/webapp/vars/main.yml'
+          }
+          }
+
 	stage('run ansible playbook to bringup docker containers')
 	{
 	steps
