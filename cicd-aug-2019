@@ -38,7 +38,7 @@ pipeline
         {
          steps
          {
-          sh 'cat /dev/null /etc/ansible/roles/webapp/vars/main.yml'
+          sh 'cat /dev/null > /etc/ansible/roles/webapp/vars/main.yml'
           sh 'echo version: $BUILD_NUMBER >> /etc/ansible/roles/webapp/vars/main.yml'
           }
           }
